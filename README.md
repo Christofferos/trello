@@ -1,6 +1,6 @@
-# React Drag n Drop Tutorial 
+# React Drag n Drop 
 
-Create a Trello Dashboard clone in React.js. The code needed for this is super easy thanks to react-dnd!
+Trello Dashboard in ReactJS.
 
 ## Installation
 

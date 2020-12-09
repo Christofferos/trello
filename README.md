@@ -22,7 +22,7 @@ npm run dev
 <img src="preview.png"/>
 
 
-## In case of issues with babel or webpack
+## Solves a babel/webpack issue
 
 ```
 npm install -D babel-loader @babel/core @babel/preset-env webpack

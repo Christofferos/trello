@@ -1,46 +1,56 @@
-const data = [{
+const data = [
+  {
     id: 1,
     icon: "⭕️",
     status: "open",
-    title: "Human Interest Form",
-    content: "Fill out human interest distribution form"
-}, {
+    title: "Subscription with credit card",
+    content: "Subscribe to Google Cloud Platform to get access to Google Maps in house route of AirBnb.",
+  },
+  {
     id: 2,
     icon: "⭕️",
     status: "open",
-    title: "Purchase present",
-    content: "Get an anniversary gift"
-}, {
+    title: "Attach photos to house preview",
+    content:
+      "When a user interacts with the map and presses a house location, the information and photos of the house should be displayed.",
+  },
+  {
     id: 3,
     icon: "⭕️",
     status: "open",
-    title: "Invest in investments",
-    content: "Call the bank to talk about investments"
-}, {
+    title: "Add an option to exit house preview",
+    content: "Implement a button to exit the information modal about houses that are available for purchase.",
+  },
+  {
     id: 4,
     icon: "⭕️",
     status: "open",
-    title: "Daily reading",
-    content: "Finish reading Intro to UI/UX"
-}];
+    title: "Add higher resolution images",
+    content: "For the home and renting route add higher resolution example images of appartments.",
+  },
+];
 
-const statuses = [{
+const statuses = [
+  {
     status: "open",
     icon: "⭕️",
-    color: "#EB5A46"
-}, {
+    color: "#EB5A46",
+  },
+  {
     status: "in progress",
     icon: "🔆️",
-    color: "#00C2E0"
-}, {
+    color: "#00C2E0",
+  },
+  {
     status: "in review",
     icon: "📝",
-    color: "#C377E0"
-}, {
+    color: "#C377E0",
+  },
+  {
     status: "done",
     icon: "✅",
-    color: "#3981DE"
-}];
-
+    color: "#3981DE",
+  },
+];
 
 export { data, statuses };

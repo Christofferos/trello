@@ -1,10 +1,10 @@
-# React Drag n Drop 
+# React Drag n Drop
 
 Trello Dashboard in ReactJS.
 
 ## Installation
 
-Use the cmd line to install dependencies. 
+Use the cmd line to install dependencies.
 
 ```
 npm install
@@ -17,3 +17,6 @@ npm run build
 npm run dev
 ```
 
+## Preview
+
+<img src="preview.png"/>

@@ -15,7 +15,7 @@ npm install
 ```
 npm run build
 npm run dev
-Open up localhost:4000 in the browser
+localhost:4000 in the browser
 ```
 
 ## Preview

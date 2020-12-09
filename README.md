@@ -20,3 +20,10 @@ npm run dev
 ## Preview
 
 <img src="preview.png"/>
+
+
+## In case of issues with babel or webpack
+
+```
+npm install -D babel-loader @babel/core @babel/preset-env webpack
+```

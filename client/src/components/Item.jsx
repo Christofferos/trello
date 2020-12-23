@@ -4,9 +4,10 @@ import Window from "./Window";
 import ITEM_TYPE from "../data/types";
 
 // This is responsible for moving items within or between trello columns.
-const Item = ({ item, index, moveItem, status }) => {
+const Item = ({ item, index, moveItem, status, handleDescChange, handleTitleChange, handleCommentSave, handleCommentChange, handleArchiveCard }) => {
     const ref = useRef(null);
 
+    // useDrop hook.
     const [, drop] = useDrop({
         accept: ITEM_TYPE,
         hover(item, monitor) {
@@ -37,6 +38,7 @@ const Item = ({ item, index, moveItem, status }) => {
         },
     });
 
+    // useDrag hook.
     const [{ isDragging }, drag] = useDrag({
         item: { type: ITEM_TYPE, ...item, index },
         collect: monitor => ({
@@ -61,13 +63,18 @@ const Item = ({ item, index, moveItem, status }) => {
                 onClick={onOpen}
             >
                 <div className={"color-bar"} style={{ backgroundColor: status.color }}/>
-                <p className={"item-title"}>{item.content}</p>
+                <p className={"item-title"}>{item.title}</p>
                 <p className={"item-status"}>{item.icon}</p>
             </div>
             <Window
                 item={item}
                 onClose={onClose}
                 show={show}
+                handleDescChange={handleDescChange}
+                handleTitleChange={handleTitleChange}
+                handleCommentSave={handleCommentSave}
+                handleCommentChange={handleCommentChange}
+                handleArchiveCard={handleArchiveCard}
             />
         </Fragment>
     );

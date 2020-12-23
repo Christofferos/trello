@@ -5,6 +5,10 @@ const data = [
     status: "open",
     title: "Subscription with credit card",
     content: "Subscribe to Google Cloud Platform to get access to Google Maps in house route of AirBnb.",
+    created: "-",
+    modified: "-",
+    activity: [],
+    currentComment: "",
   },
   {
     id: 2,
@@ -13,6 +17,10 @@ const data = [
     title: "Attach photos to house preview",
     content:
       "When a user interacts with the map and presses a house location, the information and photos of the house should be displayed.",
+    created: "-",
+    modified: "-",
+    activity: [],
+    currentComment: "",
   },
   {
     id: 3,
@@ -20,6 +28,10 @@ const data = [
     status: "open",
     title: "Add an option to exit house preview",
     content: "Implement a button to exit the information modal about houses that are available for purchase.",
+    created: "-",
+    modified: "-",
+    activity: [],
+    currentComment: "",
   },
   {
     id: 4,
@@ -27,6 +39,10 @@ const data = [
     status: "open",
     title: "Add higher resolution images",
     content: "For the home and renting route add higher resolution example images of appartments.",
+    created: "-",
+    modified: "-",
+    activity: [],
+    currentComment: "",
   },
 ];
 

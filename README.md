@@ -20,8 +20,8 @@ localhost:4000 in the browser
 
 ## Preview
 
-<img src="preview.png"/>
-
+<img src="preview2.png"/>
+<img src="preview3.png"/>
 
 ## Solves a babel/webpack issue
 

@@ -7,7 +7,7 @@ import { data, statuses, nrOfItems } from "../data";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 
-let itemCount = data.length;
+let itemIncrementId = data.length;
 
 // Runs every time something is re-rendered.
 const Homepage = () => {
@@ -19,10 +19,12 @@ const Homepage = () => {
             const newItems = prevState
                 .filter(itemObj => itemObj.id !== item.id)
                 .concat({ ...item, status, icon: mapping.icon });
+            console.log(newItems);
             return [ ...newItems ];
         });
     };
 
+    // Not in use.
     const moveItem = (dragIndex, hoverIndex) => {
         const item = items[dragIndex];
         setItems(prevState => {
@@ -33,10 +35,10 @@ const Homepage = () => {
     };
 
     const addItem = (statusId) => {
-        itemCount++;
+        itemIncrementId++;
         const iconAndStatus = statusAndIcon(statusId);
         const item = {
-            id: itemCount,
+            id: itemIncrementId,
             icon: iconAndStatus.icon,
             status: iconAndStatus.status,
             title: "Untitled.",
@@ -129,6 +131,21 @@ const Homepage = () => {
         }); 
     }
 
+    
+    const handleItemButtonMove = (item, statusId, directionAllCaps) => {
+        if (directionAllCaps === "LEFT" && statusId !== 0)
+            statusId--;
+        else if (directionAllCaps === "RIGHT" && statusId !== 3)
+            statusId++;
+        const iconAndStatus = statusAndIcon(statusId);
+        setItems(prevState => {
+            const newItems = prevState
+                .filter(itemObj => itemObj.id !== item.id)
+                .concat({ ...item, status: iconAndStatus.status, icon: iconAndStatus.icon });
+            return [ ...newItems ];
+        });
+    }
+
     return (
         <div className={"row"}>
             {statuses.map((statusObj, statusId) => {
@@ -139,7 +156,7 @@ const Homepage = () => {
                             <Col>
                                 {items
                                     .filter(itemObj => itemObj.status === statusObj.status)
-                                    .map((itemObj, idNr) => <Item key={itemObj.id} item={itemObj} index={idNr} moveItem={moveItem} status={statusObj} handleDescChange={handleDescChange} handleTitleChange={handleTitleChange} handleCommentSave={handleCommentSave} handleCommentChange={handleCommentChange} handleArchiveCard={handleArchiveCard}/>)
+                                    .map((itemObj, idNr) => <Item key={itemObj.id} item={itemObj} index={idNr} moveItem={moveItem} status={statusObj} statusId={statusId} handleItemButtonMove={handleItemButtonMove} handleDescChange={handleDescChange} handleTitleChange={handleTitleChange} handleCommentSave={handleCommentSave} handleCommentChange={handleCommentChange} handleArchiveCard={handleArchiveCard}/>)
                                 }
                                 <p id={statusId} className="add-btn" onClick={() => addItem(statusId)}><a><FontAwesomeIcon icon={faPlus}/> Add a card</a></p>
                             </Col>

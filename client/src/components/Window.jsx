@@ -2,7 +2,7 @@ import React from "react";
 import Modal from "react-modal";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTrash } from '@fortawesome/free-solid-svg-icons'
+import { faTrash, faArrowCircleLeft, faArrowCircleRight } from '@fortawesome/free-solid-svg-icons'
 
 Modal.setAppElement("#app");
 
@@ -11,7 +11,7 @@ function eraseText() {
 }
 
 // Prop names come from the documentation from react-modal
-const Window = ({ show, onClose, item, handleDescChange, handleTitleChange, handleCommentSave, handleCommentChange, handleArchiveCard }) => {
+const Window = ({ show, onClose, item, statusId, handleItemButtonMove, handleDescChange, handleTitleChange, handleCommentSave, handleCommentChange, handleArchiveCard }) => {
     return (
         <Modal
             isOpen={show}
@@ -30,6 +30,7 @@ const Window = ({ show, onClose, item, handleDescChange, handleTitleChange, hand
                 <p>{`${item.status.charAt(0).toUpperCase()}${item.status.slice(1)}`} {item.icon}</p>
                 <p>Created: {item.created}</p>
                 <p>Modified: {item.modified}</p>
+                <p>Move card: <a onClick={() => handleItemButtonMove(item, statusId, "LEFT")}><FontAwesomeIcon icon={faArrowCircleLeft} style={{fontSize:"20px"}}/>LEFT</a> or <a onClick={() => handleItemButtonMove(item, statusId, "RIGHT")}><FontAwesomeIcon icon={faArrowCircleRight} style={{fontSize:"20px"}}/>RIGHT</a></p>
             </div>
             <div style={{margin: "3rem 0rem 0rem 0rem"}}>
                 <h2>Activity</h2>
@@ -39,7 +40,7 @@ const Window = ({ show, onClose, item, handleDescChange, handleTitleChange, hand
                 <div>{item.activity.map((comment, id) => <p key={id}>{id+1}. {comment}</p>)}</div>
             </div>
             <div>
-                <h2 style={{margin: "2.5rem 0rem 0rem 0rem"}}>Archive <a className="trash-icon" onClick={() => handleArchiveCard(item.id)}><FontAwesomeIcon icon={faTrash}/></a></h2>
+            <a onClick={() => handleArchiveCard(item.id)}><h2 style={{margin: "2.5rem 0rem 0rem 0rem"}}>Archive <FontAwesomeIcon icon={faTrash}/></h2></a>
             </div>
         </Modal>
     );

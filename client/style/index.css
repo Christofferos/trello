@@ -71,10 +71,22 @@ select {
   height: 40px;
 }
 
+.row-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
 .row {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  margin-top: 15vh;
+}
+.row::before,
+.row::after {
+  content: "";
+  margin: auto;
 }
 
 .item {
@@ -175,7 +187,7 @@ select {
 .close-btn {
   height: 40px;
   width: 35px;
-  font-size: 20px;
+  font-size: 30px;
   color: #031d2c;
   border: none;
   border-radius: 25px;
@@ -202,6 +214,7 @@ select {
   overflow: auto;
   font-family: sans-serif;
   font-weight: 500;
+  font-size: 16px;
 }
 
 .comment-btn {
